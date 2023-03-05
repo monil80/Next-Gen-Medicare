@@ -1,56 +1,56 @@
 
 const productsData = [
     {
-        id: "1",
-        imgsrc: "../images/derma1.jpg",
+        
+        img: "../images/derma1.jpg",
         title: "Dermatology",
         info: "Medicines on Skin Problems.",
-        link: "products/dermatology"
+        goto: "products/dermatology"
     },
     {
-        id: "2",
-        imgsrc: "../images/diabet3.jpg",
-        title: "Diabetics",
+       
+        img: "../images/diabet3.jpg",
+        title: "Diabetes",
         info: "Medicines on Diabetics",
-        link: "/products/diabetics"
+        goto: "/products/diabetes"
     },
     {
-        id: "3",
-        imgsrc: "../images/depression.jpg",
+       
+        img: "../images/depression.jpg",
         title: "Depression",
         info: "Medicines on Depression",
-        link: "/products/depression"
+        goto: "/products/depression"
     },
     {
-        id: "4",
-        imgsrc: "../images/dental.jpg",
+       
+        img: "../images/dental.jpg",
         title: "Dental",
         info: "Medicines on Dental",
-        link: "/products/dental"
+        goto: "/products/dental"
     },
 
     {
-        id: "5",
-        imgsrc: "../images/Fracture.jpg",
+       
+        img: "../images/Fracture.jpg",
         title: "Fracture",
         info: "Medicines on Fracture",
-        link: "/products/fracture"
+        goto: "/products/fracture"
     },
     {
-        id: "6",
-        imgsrc: "../images/womens.jpg",
+        
+        img: "../images/womens.jpg",
         title: "Women's Care",
         info: "Medicines Women's Care",
-        link: "/products/womensCare"
+        goto: "/products/women's Care"
     },
 
     {
-        id:"7",
-        imgsrc: "../images/bloodpressure.jpg",
+       
+        img: "../images/bloodpressure.jpg",
         title: "Blood Pressure",
         info: "Medicines on Blood Pressure",
-        link: "/products/bloodPressure"
+        goto: "/products/bloodPressure"
     }
 ]
 
-
+module.exports = productsData;

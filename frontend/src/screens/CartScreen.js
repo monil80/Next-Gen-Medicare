@@ -137,7 +137,7 @@ const CartScreen = () => {
               //     }}>
 
               //   </button>
-              <StripeCheckout stripeKey="pk_test_51MhYJTSCagZH7yrj9FcCJlbkb9QZ2ZFagaSTAt86MSuHXgUsvEqKMwEO5GsmZBRCd2GSMAgwbocrdkeP9oafTchR00PnZEtmha"
+              <StripeCheckout stripeKey="pk_test_551MhYJTSCagZH7yrj9FcCJlbkb9QZ2ZFagaSTAt86MSuHXgUsvEqKMwEO5GsmZBRCd2GSMAgwbocrdkeP9oafTchR00PnZEtmhaa"
                 token={makePayment} amount={getCartSubTotal() * 100 * 0.014}
                 shippingAddress
                 billingAddress
