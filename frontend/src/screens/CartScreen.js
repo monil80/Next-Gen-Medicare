@@ -132,7 +132,7 @@ const CartScreen = () => {
                 token={makePayment} amount={getCartSubTotal()*100}
                 shippingAddress
                 billingAddress
-                image="../images/logo1.png"
+                image="https://i.postimg.cc/yxsNfCFW/logo.jpg"
                 name="Next Gen Medicare"
                 description="payment gateway" 
                 currency="INR" />
