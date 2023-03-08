@@ -1,7 +1,6 @@
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logo from "../images/logo.jfif";
 //import { getcart} from "../redux/actions/cartActions";
 
 const Navbar = ({ click }) => {
@@ -31,7 +30,7 @@ const Navbar = ({ click }) => {
     
       <Link to="/" className="">
         <span className="logo">
-          <img src={logo} style={{ height: "60px", width: "90px" }} alt="" className="img-fluid rounded mx-auto d-block img-thumbnail" />
+          <img src="https://i.postimg.cc/yxsNfCFW/logo.jpg" style={{ height: "60px", width: "90px" }} alt="" className="img-fluid rounded mx-auto d-block img-thumbnail" />
         </span>
 
       </Link>

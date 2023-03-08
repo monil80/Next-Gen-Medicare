@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
+//import { useHistory} from "react-router-dom"
+import axios from 'axios';
 
 function ContactScreen() {
+
+    //const navigate = useHistory();
+
+
     const [data, setData] = useState({
         fullName: "",
         email: "",
@@ -20,34 +26,60 @@ function ContactScreen() {
     };
 
     const formSubmit = (e) => {
-        e.preventDefault();
-        alert(
-            `Your Full Name is ${data.fullName}. Your Email address ${data.email} ,Your Gender is ${data.gender}, Your City is ${data.city} ,Your message is ${data.message}. Thank For Your Response`
-        );
+         e.preventDefault();
+
+
+         axios.post("http://localhost:5000/api/contact", data)
+         .then(res => {
+
+            setData((preVal) => {
+                return {
+                    ...preVal,
+                    fullName: "",
+                    email: "",
+                     gender: "",
+                    message: "",
+                    city: "",
+                };
+            });
+             
+              alert(
+                 `Your Full Name is ${data.fullName}. Your Email address ${data.email} ,Your Gender is ${data.gender}, Your City is ${data.city} ,Your message is ${data.message}. Thank For Your Response`
+             );  
+            
+          
+           
+            
+         }).catch(error => {
+           console.log("ERROR: ",error);})
+       
     };
 
     const PostData = async (e) => {
-        e.preventDefault();
-        alert(
-            `Your Full Name is ${data.fullName}. Your Email address ${data.email} ,Your Gender is ${data.gender}, Your City is ${data.city} ,Your message is ${data.message}. Thank For Your Response`
-        );
-        const { fullName, email, message, city } = data;
-        const response = await fetch("http://localhost:5000/api/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                fullName, email, message, city
-            })
-        });
-        const _data = await response.json();
-        if(!_data.status === 422) {
-            console.log("Error")
-        }else{
-            console.log("registration")
+      
+       
+        // const { fullName, email, message, city } = data;
+        // const response = await fetch("http://localhost:5000/api/contact", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         fullName, email, message, city
+        //     })
+        // });
+
+        // const _data = await response.json();
+        // if(!_data.status === 422) {
+        //     console.log("Error")
+        // }else {
+        //     console.log("registration")
             
-        }
+        // }
+
+       
+      
+        
     }
 
   
@@ -72,7 +104,7 @@ function ContactScreen() {
                                         value={data.fullName}
                                         onChange={InputEvent}
                                         placeholder="Enter Your Name"
-                                        required="" />
+                                        required={true} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -84,7 +116,8 @@ function ContactScreen() {
                                         value={data.email}
                                         onChange={InputEvent}
                                         placeholder="name@example.com"
-                                        required=""/>
+                                      
+                                        required={true}/>
                                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div className="mb-3">
@@ -95,20 +128,20 @@ function ContactScreen() {
                                             id="inlineRadio1"
                                             value={data.gender}
                                             onChange={InputEvent}
-                                            required="" />
+                                            required={true} />
                                         <label className="form-check-label" htmlFor="inlineRadio1">Female</label>
                                     </div>
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="radio" name="gender" id="inlineRadio2"
                                             value={data.gender}
                                             onChange={InputEvent}
-                                            required="" />
+                                            required={true} />
                                         <label className="form-check-label" htmlFor="inlineRadio2">Male</label>
                                     </div>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleDataList"
-                                        className="form-label">Select City</label>
+                                        className="form-label">City</label>
                                     <input
                                         className="form-control"
                                         list="datalistOptions"
@@ -118,13 +151,13 @@ function ContactScreen() {
                                         value={data.city}
                                         onChange={InputEvent}
                                         placeholder="Type to search..."
-                                        required="" />
+                                        required={true} />
                                     <datalist id="datalistOptions">
-                                        <option value="San Francisco"></option>
-                                        <option value="New York"></option>
-                                        <option value="Seattle"></option>
-                                        <option value="Los Angeles"></option>
-                                        <option value="Chicago"></option>
+                                        <option value="Pune"></option>
+                                        <option value="Hydrabad"></option>
+                                        <option value="Indore"></option>
+                                        <option value="Mumbai"></option>
+                                        <option value="Bengaluru"></option>
                                         <option value="Bhubaneswar"></option>
                                     </datalist>
                                 </div>
@@ -135,7 +168,7 @@ function ContactScreen() {
                                     <label htmlFor="exampleFormControlTextarea1" className="form-label">Message</label>
                                     <textarea className="form-control"
                                         id="exampleFormControlTextarea1"
-                                        required=""
+                                        required={true}
                                         rows="3"
                                         name="message"
                                         value={data.message}

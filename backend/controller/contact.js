@@ -6,6 +6,8 @@ const Contact = require("../models/Contact");
 router.get("/", (req, res) => {
     res.json({ message: "This is the contact page" });
   });
+
+
   
   router.post("/", (req, res) => {
    // console.log(req.body)
@@ -15,6 +17,8 @@ router.get("/", (req, res) => {
     })
     newContact.save();
    // console.log("newContact has been saved")
+
+    res.json("contect detail submit")
   
   });
   

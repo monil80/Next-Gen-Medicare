@@ -530,6 +530,16 @@ const products = [
   
   countInStock : 500,      category: "Women's Care"
     },
+    {
+        imgsrc: "https://i.postimg.cc/YSCfsTzn/candesartan.png",
+        title: "Candesartan Krka tablet",
+        indication: "Candesartan is a medicine widely used to treat high blood pressure (hypertension) and heart failure..",
+        dosage: "usually take candesartan tablets once a day.take it at the same time every day. You can take candesartan tablets with or without food. Swallow the tablets whole with a drink of water..",
+        sideEffects: "the whites of your eyes turn yellow, or your skin turns yellow although this may be less obvious on brown or black skin these can be signs of liver problems",
+        price: 305,
+  
+  countInStock : 500,      category: "BloodPressure"
+    },
    
 
 
