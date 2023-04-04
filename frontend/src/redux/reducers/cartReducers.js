@@ -1,5 +1,4 @@
 import * as actionTypes from "../constants/cartConstants";
-//import React, {useEffect,useState}from 'react';
 
 // const CART_INITIAL_STATE = {
 
@@ -36,6 +35,11 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       return {
         ...state,
         cartItems:  action.payload,
+      };
+    case actionTypes.LOGOUT_TO_CART:
+      return {
+        ...state,
+        cartItems: action.payload,
       };
     default:
       return state;

@@ -1,10 +1,8 @@
 import React, {useEffect,useState}from 'react';
 import "../styles/MainScreen.css";
-//import allProductsData from "../Data/allProductsData";
-import Card from "../components/Card";
-//import axios from "axios";
-import { publicRequest } from '../requestMethods';
 
+import Card from "../components/Card";
+import { publicRequest } from '../requestMethods';
 import Newsletter from "../components/Newsletter"
 
 

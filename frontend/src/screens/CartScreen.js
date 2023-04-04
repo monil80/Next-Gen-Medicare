@@ -68,9 +68,9 @@ const CartScreen = () => {
       headers: headers,
       body: JSON.stringify(body)
     }).then(response => {
-      console.log("RESPONSE", response)
-      const { status } = response
-      console.log("status", status)
+      //console.log("RESPONSE", response)
+      //const { status } = response
+      //console.log("status", status)
 
       // Empty The cart after Succcesfull Payment
       cartItems.forEach(item => dispatch(removeFromCart(item.product)))
@@ -86,24 +86,17 @@ const CartScreen = () => {
   return (
     <>
       {/* {getcardata()} */}
-    
-
-
 
       <div className="cartscreen" style={{ marginBottom: "460px" }}>
         <div className="cartscreen__left">
           <h2>Shopping Cart</h2>
 
-
-
           {cartItems.length === 0 ? (
             <div>
               Your Cart Is Empty <Link to="/">Go Back</Link>
             </div>
-
           ) : (
             cartItems.map((item) => (
-
               <CartItem
                 key={item.product}
                 item={item}
@@ -118,30 +111,32 @@ const CartScreen = () => {
           <div className="cartscreen__info">
             <p>Subtotal ({getCartCount()}) items</p>
             <p>TOTAL(INR) : ₹{getCartSubTotal()} </p>
-            <p>TOTAL(USD) : ${getCartSubTotal() *0.0029} </p>
+            <p>TOTAL(USD) : ${getCartSubTotal() * 0.0029} </p>
           </div>
           <div>
-            {cartItems.length === 0 ? <button disabled={true}  ></button> :
-
+            {cartItems.length === 0 ? (
+              <button disabled={true}></button>
+            ) : (
               // <button    onClick={function() {
               //     console.log(process.env.REACT_APP_KEY)
               //     }}>
 
               //   </button>
-              <StripeCheckout stripeKey="pk_test_51Mh79dSJHjB0JqGf3VMcaTZiEQbMtNIVGfI3wKguWvaga66zBQUItyWHHWhxy9VnRY24HoVA8UiSAj5R5gvcEj2v00kUthYmQ6"
-                token={makePayment} amount={getCartSubTotal()*100}
+              <StripeCheckout
+                stripeKey="pk_test_51Mh79dSJHjB0JqGf3VMcaTZiEQbMtNIVGfI3wKguWvaga66zBQUItyWHHWhxy9VnRY24HoVA8UiSAj5R5gvcEj2v00kUthYmQ6"
+                token={makePayment}
+                amount={getCartSubTotal() * 100}
                 shippingAddress
                 billingAddress
                 image="https://i.postimg.cc/yxsNfCFW/logo.jpg"
                 name="Next Gen Medicare"
-                description="payment gateway" 
-                currency="INR" />
-
-            }
+                description="payment gateway"
+                currency="INR"
+              />
+            )}
           </div>
         </div>
       </div>
-
     </>
   );
 };

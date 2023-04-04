@@ -1,5 +1,5 @@
 import React from 'react'
-//import allProductsData from "../Data/allProductsData";
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";

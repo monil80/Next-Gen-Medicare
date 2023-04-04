@@ -1,5 +1,4 @@
 import React, {useEffect,useState} from 'react';
-//import allProductsData from "../Data/allProductsData";
 import Card from "../components/Card";
 import { publicRequest } from '../requestMethods';
 
@@ -50,8 +49,3 @@ function AllProductsScreen() {
 export default AllProductsScreen;
 
 
-// key={index}
-// imgsrc={val.imgsrc}
-// title={val.title}
-// info={val.info}
-// link={val.link}

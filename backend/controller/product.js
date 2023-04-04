@@ -3,16 +3,15 @@ const router = require("express").Router();
 
 const getProducts = async (req, res) => {
   try {
-   // console.log("hi")
+    // console.log("hi")
     const products = await Product.find({});
     res.json(products);
-   // console.log(products)
+    // console.log(products)
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });
   }
 };
-
 
 const getProductById = async (req, res) => {
   try {
@@ -27,6 +26,5 @@ const getProductById = async (req, res) => {
 
 router.get("/", getProducts);
 router.get("/:id", getProductById);
-
 
 module.exports = router;

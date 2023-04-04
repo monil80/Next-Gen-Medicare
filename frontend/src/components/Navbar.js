@@ -1,88 +1,76 @@
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-//import { getcart} from "../redux/actions/cartActions";
+import { useEffect, useState } from "react";
 
 const Navbar = ({ click }) => {
-
- // const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  let check = useSelector((state) => state.user);
+  // console.log("🚀 ~ file: Navbar.js:10 ~ Navbar ~ check:", check)
 
   const getCartCount = () => {
-     // dispatch(getcart())
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
   };
 
-  let usercheck=false;
-  
+  const [user, setUser] = useState("");
 
-  if (localStorage.getItem('auth-token')) {
-          usercheck=true
-  }
+  useEffect(() => {
+    if (check.check) {
+      setUser("LOG OUT");
+    }
+   
+    else
+    {
+      setUser("SIGN IN");
+      }
+    
+  }, [check]);
 
   return (
-
-   
     <nav className="navbar navbar-expand-lg navbar-dark ">
-      
-      
-    
       <Link to="/" className="">
         <span className="logo">
-          <img src="https://i.postimg.cc/yxsNfCFW/logo.jpg" style={{ height: "60px", width: "90px" }} alt="" className="img-fluid rounded mx-auto d-block img-thumbnail" />
+          <img
+            src="https://i.postimg.cc/yxsNfCFW/logo.jpg"
+            style={{ height: "60px", width: "90px" }}
+            alt=""
+            className="img-fluid rounded mx-auto d-block img-thumbnail"
+          />
         </span>
-
       </Link>
 
-
       <ul className="navbar__links">
-
         <li>
           <Link to="/" className="">
-            <span>
-              Home
-            </span>
+            <span>Home</span>
           </Link>
         </li>
         <li>
           <Link to="/allProducts" className="">
-            <span>
-              Products
-            </span>
+            <span>Products</span>
           </Link>
         </li>
         <li>
           <Link to="/about" className="">
-            <span>
-              About Us
-            </span>
+            <span>About Us</span>
           </Link>
         </li>
         <li>
           <Link to="/contact" className="">
-            <span>
-              Contact Us
-            </span>
+            <span>Contact Us</span>
           </Link>
         </li>
       </ul>
 
-
       <ul className="navbar__links">
-      <li>
-         
+        <li>
           <Link to="/login" className="cart__link">
-           
-            <span className="text-center">
-            { (usercheck && "LOG OUT")||(!usercheck && "SIGN IN") } 
-            </span>
+            <span className="text-center">{user}</span>
           </Link>
         </li>
-       
 
         <li>
-         
           <Link to="/cart" className="cart__link">
             <i className="fas fa-shopping-cart"></i>
             <span>
@@ -90,11 +78,7 @@ const Navbar = ({ click }) => {
             </span>
           </Link>
         </li>
-        <li>
-
-        </li>
-       
-       
+        <li></li>
       </ul>
 
       <div className="hamburger__menu" onClick={click}>

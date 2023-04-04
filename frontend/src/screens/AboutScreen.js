@@ -19,7 +19,7 @@ export const AboutScreen = () => {
             We utilize our insight into the pharmaceutical business to ensure that
             the majority of our magnificence items and medicines are results
             driven, with the goal that we can offer brands that are ideal for
-            every person. ‘Organization Name’ pharmacy is a warm and well disposed
+            every person. Next Gen Medicare is a warm and well disposed
             place, with experienced specialists giving proficient skincare
             medicines, and magnificence exhortation in a quiet and loosening up
             condition.

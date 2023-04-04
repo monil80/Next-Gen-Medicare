@@ -1,12 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-//import React,{useState,useEffect} from "react";
-//import {  useDispatch } from "react-redux";
-//import { getcart} from "../../redux/actions/cartActions";
-
-
-
 
 
 // Reducers
@@ -15,35 +9,23 @@ import {
   getProductsReducer,
   getProductDetailsReducer,
 } from "./reducers/productReducers";
+import { userReducer } from "./reducers/userReducer"
 //import axios from "axios";
 
 const reducer = combineReducers({
   cart: cartReducer,
   getProducts: getProductsReducer,
   getProductDetails: getProductDetailsReducer,
+  user: userReducer,
 });
 
 const middleware = [thunk]; 
 
-
-// if(localStorage.getItem("auth-token-id"))
-// {
-//   cartItemsInLocalStorage =localStorage.getItem("cart")
-//   ? JSON.parse(localStorage.getItem("cart"))
-//   : [];
-// }
-// else
-// {
-//   cartItemsInLocalStorage=[]
-// }
-  // cartItemsInLocalStorage =localStorage.getItem("cart")
-  //  ? JSON.parse(localStorage.getItem("cart"))
-  //  : [];
   
- let cartItemsInLocalStorage =localStorage.getItem("cart")
-     ? JSON.parse(localStorage.getItem("cart"))
-     : [];
-//let cartItemsInLocalStorage=[]
+//  let cartItemsInLocalStorage =localStorage.getItem("cart")
+//      ? JSON.parse(localStorage.getItem("cart"))
+//      : [];
+let cartItemsInLocalStorage=[]
 
 
 const INITIAL_STATE = {

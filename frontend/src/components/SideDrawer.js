@@ -1,12 +1,14 @@
 import "../styles/SideDrawer.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 const SideDrawer = ({ show, click }) => {
   const sideDrawerClass = ["sidedrawer"];
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  let check = useSelector((state) => state.user);
 
   const getCartCount = () => {
     return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
@@ -16,18 +18,21 @@ const SideDrawer = ({ show, click }) => {
     sideDrawerClass.push("show");
   }
 
-  let usercheck=false;
-  
+  const [user, setUser] = useState("");
 
-  if (localStorage.getItem('auth-token')) {
-          usercheck=true
-  }
+  useEffect(() => {
+    if (check.check) {
+      setUser("LOG OUT");
+    } else {
+      setUser("SIGN IN");
+    }
+  }, [check]);
 
   return (
     <div className={sideDrawerClass.join(" ")}>
       <ul className="sidedrawer__links" onClick={click}>
-      <li>
-          <Link to="/login">   { (usercheck && "Log Out")||(!usercheck && "Sign In") } </Link>
+        <li>
+          <Link to="/login"> {user} </Link>
         </li>
         <li>
           <Link to="/cart">
